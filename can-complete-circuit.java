@@ -10,7 +10,7 @@ class Solution {
 
             currentGas += (gas[i] - cost[i]);
         }
-        -6
+        
         return currentGas < 0 ? -1 : ret;
     }
 }
