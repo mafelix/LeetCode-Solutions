@@ -1,8 +1,8 @@
 class Solution {
-    public void dfs(int[] edges, int node, int step, Set<Integer> visited, int[] dist) {
+    public void dfs(int[] edges, int node, int step, int[] dist) {
         if (dist[node] != -1) return;
         dist[node] = step;
-        if (edges[node] != -1) dfs(edges, edges[node], step+1, visited, dist);
+        if (edges[node] != -1) dfs(edges, edges[node], step+1, dist);
     }
     public int closestMeetingNode(int[] edges, int node1, int node2) {
         // Note that edges may contain cycles.
@@ -11,8 +11,8 @@ class Solution {
         Arrays.fill(dist1, -1);
         Arrays.fill(dist2, -1);
 
-        dfs(edges, node1, 0, new HashSet(), dist1);
-        dfs(edges, node2, 0, new HashSet(), dist2);
+        dfs(edges, node1, 0, dist1);
+        dfs(edges, node2, 0, dist2);
 
         int ans = Integer.MAX_VALUE;
         int node = -1;
